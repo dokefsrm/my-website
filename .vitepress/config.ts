@@ -23,6 +23,7 @@ const tutorialsSidebar = [
 ]
 
 export default defineConfig({
+  base: '/my-website/',
   title: 'MySite',
   description: '个人网站 — 分享资源、教程与文章',
 
