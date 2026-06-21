@@ -1,0 +1,86 @@
+[
+  {
+    "title": "VS Code",
+    "url": "https://code.visualstudio.com/",
+    "category": "工具",
+    "tags": ["免费", "编辑器", "微软"],
+    "description": "最流行的开源代码编辑器，插件生态强大，前端开发首选"
+  },
+  {
+    "title": "Everything",
+    "url": "https://www.voidtools.com/",
+    "category": "工具",
+    "tags": ["免费", "Windows", "搜索"],
+    "description": "Windows 文件秒搜工具，比系统自带搜索快百倍"
+  },
+  {
+    "title": "Obsidian",
+    "url": "https://obsidian.md/",
+    "category": "工具",
+    "tags": ["免费", "笔记", "Markdown"],
+    "description": "本地优先的 Markdown 笔记工具，双向链接，插件丰富"
+  },
+  {
+    "title": "PowerToys",
+    "url": "https://github.com/microsoft/PowerToys",
+    "category": "工具",
+    "tags": ["免费", "开源", "微软", "Windows"],
+    "description": "微软官方 Windows 增强工具集：快速启动、窗口管理、批量重命名等"
+  },
+  {
+    "title": "JavaScript 高级程序设计（第4版）",
+    "url": "https://book.douban.com/subject/35175321/",
+    "category": "书籍",
+    "tags": ["JavaScript", "前端", "经典"],
+    "description": "前端必读经典「红宝书」，深入理解 JS 语言核心"
+  },
+  {
+    "title": "Clean Code",
+    "url": "https://book.douban.com/subject/26986935/",
+    "category": "书籍",
+    "tags": ["编程思想", "经典", "软件工程"],
+    "description": "Bob 大叔经典之作，教你写出可维护的优雅代码"
+  },
+  {
+    "title": "MDN Web Docs",
+    "url": "https://developer.mozilla.org/zh-CN/",
+    "category": "网站",
+    "tags": ["免费", "文档", "前端"],
+    "description": "最权威的 Web 技术文档，前端开发者的百科全书"
+  },
+  {
+    "title": "Can I Use",
+    "url": "https://caniuse.com/",
+    "category": "网站",
+    "tags": ["免费", "前端", "兼容性"],
+    "description": "查询浏览器特性兼容性，前端开发必备参考"
+  },
+  {
+    "title": "CSS-Tricks",
+    "url": "https://css-tricks.com/",
+    "category": "网站",
+    "tags": ["免费", "CSS", "教程"],
+    "description": "CSS 技巧和教程的宝藏网站，布局、动画、新特性一应俱全"
+  },
+  {
+    "title": "Oh My Zsh",
+    "url": "https://ohmyz.sh/",
+    "category": "工具",
+    "tags": ["免费", "开源", "终端", "macOS/Linux"],
+    "description": "Zsh 配置管理框架，让你的终端漂亮又好用"
+  },
+  {
+    "title": "Docker — 从入门到实践",
+    "url": "https://yeasy.gitbook.io/docker_practice/",
+    "category": "书籍",
+    "tags": ["免费", "Docker", "DevOps", "开源"],
+    "description": "开源 Docker 中文教程，从零到生产实践"
+  },
+  {
+    "title": "Tailwind CSS",
+    "url": "https://tailwindcss.com/",
+    "category": "工具",
+    "tags": ["CSS", "框架"],
+    "description": "实用优先的 CSS 框架，用原子类快速构建界面"
+  }
+]
