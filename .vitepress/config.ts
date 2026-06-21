@@ -127,4 +127,7 @@ export default defineConfig({
 
   // 忽略死链检查的文件
   ignoreDeadLinks: true,
+
+  // 排除 index.md，使用 public/index.html（ZYYO 风格首页）
+  srcExclude: ['index.md'],
 })
