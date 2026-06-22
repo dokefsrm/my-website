@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "dokefsrm",
+      "bio": "一名热爱技术的开发者，专注于前端开发和技术写作。",
+      "skills": [
+        "JavaScript",
+        "Vue",
+        "Node.js",
+        "Git",
+        "Docker"
+      ],
+      "social": {
+        "github": "https://github.com/dokefsrm",
+        "email": "3447566617@qq.com"
+      },
+      "avatar_url": "",
+      "created_at": "2026-06-22T13:32:10.987Z",
+      "updated_at": "2026-06-22T13:32:10.987Z"
+    }
+  ],
+  "nextId": 2
+}

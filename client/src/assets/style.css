@@ -1,0 +1,118 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+a { color: #3b82f6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 960px; margin: 0 auto; padding: 24px; }
+.page-title { font-size: 28px; font-weight: 800; margin-bottom: 24px; }
+
+/* 博客卡片 */
+.blog-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: all 0.2s;
+}
+.blog-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); transform: translateY(-1px); }
+.blog-card h2 { font-size: 20px; margin-bottom: 8px; }
+.blog-card h2 a { color: #1e293b; }
+.blog-card .meta { font-size: 13px; color: #94a3b8; margin-bottom: 12px; }
+.blog-card .excerpt { font-size: 14px; color: #64748b; line-height: 1.6; }
+.blog-card .tags { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #eff6ff;
+  color: #3b82f6;
+}
+.tag.active { background: #3b82f6; color: #fff; }
+
+/* 筛选栏 */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+}
+.filter-btn {
+  padding: 6px 16px; border-radius: 20px; border: 1px solid #e2e8f0;
+  background: #fff; cursor: pointer; font-size: 13px; transition: all 0.2s;
+}
+.filter-btn:hover { border-color: #3b82f6; color: #3b82f6; }
+.filter-btn.active { background: #3b82f6; border-color: #3b82f6; color: #fff; }
+
+/* 资源网格 */
+.resource-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px; margin-top: 20px;
+}
+.resource-card {
+  background: #fff; border-radius: 12px; padding: 20px;
+  border: 1px solid #e2e8f0; transition: all 0.2s; display: block; color: inherit;
+}
+.resource-card:hover { border-color: #3b82f6; box-shadow: 0 4px 16px rgba(0,0,0,0.06); text-decoration: none; }
+.resource-card h3 { font-size: 16px; margin-bottom: 8px; }
+.resource-card .desc { font-size: 13px; color: #64748b; }
+.resource-card .cat-badge {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600; margin-bottom: 8px;
+}
+.cat-badge.tool { background: #dbeafe; color: #1d4ed8; }
+.cat-badge.book { background: #dcfce7; color: #15803d; }
+.cat-badge.website { background: #fef3c7; color: #a16207; }
+
+/* 分页 */
+.pagination { display: flex; justify-content: center; gap: 8px; margin-top: 32px; }
+.pagination button {
+  padding: 8px 16px; border-radius: 8px; border: 1px solid #e2e8f0;
+  background: #fff; cursor: pointer; font-size: 14px;
+}
+.pagination button:disabled { opacity: 0.4; cursor: default; }
+.pagination button.active { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+
+/* 文章详情 */
+.post-content { font-size: 16px; line-height: 1.9; }
+.post-content h2 { margin: 32px 0 16px; font-size: 24px; }
+.post-content h3 { margin: 24px 0 12px; font-size: 20px; }
+.post-content p { margin: 12px 0; }
+.post-content img { max-width: 100%; border-radius: 8px; }
+.post-content pre { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0; }
+.post-content code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 14px; }
+.post-content blockquote { border-left: 3px solid #3b82f6; padding-left: 16px; margin: 16px 0; color: #64748b; }
+
+/* 加载状态 */
+.loading { text-align: center; padding: 60px 20px; color: #94a3b8; }
+.empty { text-align: center; padding: 60px 20px; color: #94a3b8; font-size: 15px; }
+
+/* 教程进度 */
+.tutorial-progress {
+  background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.tutorial-progress a {
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+  border-radius: 8px; font-size: 14px; color: #64748b; transition: all 0.2s;
+}
+.tutorial-progress a:hover, .tutorial-progress a.active {
+  background: #eff6ff; color: #3b82f6; text-decoration: none;
+}
+.tutorial-progress .dot {
+  width: 24px; height: 24px; border-radius: 50%; background: #f1f5f9;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+}
+.tutorial-progress a.active .dot { background: #3b82f6; color: #fff; }
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .container { padding: 16px; }
+  .resource-grid { grid-template-columns: 1fr; }
+}
