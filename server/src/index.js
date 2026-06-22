@@ -12,6 +12,7 @@ import tutorialRoutes from './routes/tutorials.js'
 import resourceRoutes from './routes/resources.js'
 import uploadRoutes from './routes/upload.js'
 import aboutRoutes from './routes/about.js'
+import searchRoutes from './routes/search.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -31,6 +32,7 @@ app.use('/api/posts', postRoutes.publicRouter)
 app.use('/api/tutorials', tutorialRoutes.publicRouter)
 app.use('/api/resources', resourceRoutes.publicRouter)
 app.use('/api/about', aboutRoutes.publicRouter)
+app.use('/api/search', searchRoutes)
 
 // 管理 API（需认证）
 app.use('/api/admin/posts', postRoutes.adminRouter)
@@ -58,6 +60,11 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, async () => {
   await runSeed()
-  console.log(`Server running at http://localhost:${PORT}`)
+  console.log(`Server running on port ${PORT}`)
   console.log(`Mode: ${process.env.NODE_ENV || 'development'}`)
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`后台登录: /admin/login`)
+  } else {
+    console.log(`后台登录: http://localhost:5173/admin/login`)
+  }
 })
