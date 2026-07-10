@@ -42,8 +42,6 @@ onMounted(async () => {
   try { post.value = await api.get(`/api/posts/${route.params.id}`) } catch {}
   loading.value = false
   await highlight()
-  await nextTick()
-  loadGiscus()
 })
 
 watch(() => route.params.id, async () => {
@@ -51,9 +49,14 @@ watch(() => route.params.id, async () => {
   try { post.value = await api.get(`/api/posts/${route.params.id}`) } catch { post.value = null }
   loading.value = false
   await highlight()
-  await nextTick()
-  loadGiscus()
 })
+
+// 监听 post 加载完成后注入 Giscus（flush: 'post' 确保 DOM 已渲染）
+watch(post, (val) => {
+  if (val) {
+    setTimeout(() => loadGiscus(), 0)
+  }
+}, { flush: 'post' })
 </script>
 
 <template>
