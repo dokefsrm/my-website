@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, nextTick, watch } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import api from '../api/index.js'
 import hljs from 'highlight.js'
@@ -8,6 +8,10 @@ const route = useRoute()
 const post = ref(null)
 const loading = ref(true)
 const giscusEl = ref(null)
+
+function getTheme() {
+  return document.body.classList.contains('dark') ? 'dark' : 'light'
+}
 
 async function highlight() {
   await nextTick()
@@ -18,7 +22,6 @@ async function highlight() {
 
 function loadGiscus() {
   if (!giscusEl.value) return
-  // 清除旧内容，重新注入 Giscus 脚本
   giscusEl.value.innerHTML = ''
   const script = document.createElement('script')
   script.src = 'https://giscus.app/client.js'
@@ -31,17 +34,36 @@ function loadGiscus() {
   script.setAttribute('data-reactions-enabled', '1')
   script.setAttribute('data-emit-metadata', '0')
   script.setAttribute('data-input-position', 'bottom')
-  script.setAttribute('data-theme', 'preferred_color_scheme')
+  script.setAttribute('data-theme', getTheme())
   script.setAttribute('data-lang', 'zh-CN')
   script.crossOrigin = 'anonymous'
   script.async = true
   giscusEl.value.appendChild(script)
 }
 
+// 监听网站主题切换，同步更新 Giscus
+let observer = null
+function setupThemeObserver() {
+  observer = new MutationObserver(() => {
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (iframe?.contentWindow) {
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: getTheme() } } },
+        'https://giscus.app'
+      )
+    }
+  })
+  observer.observe(document.body, { attributes: true, attributeFilter: ['class'] })
+}
+
 onMounted(async () => {
   try { post.value = await api.get(`/api/posts/${route.params.id}`) } catch {}
   loading.value = false
   await highlight()
+})
+
+onUnmounted(() => {
+  if (observer) observer.disconnect()
 })
 
 watch(() => route.params.id, async () => {
@@ -54,7 +76,10 @@ watch(() => route.params.id, async () => {
 // 监听 post 加载完成后注入 Giscus（flush: 'post' 确保 DOM 已渲染）
 watch(post, (val) => {
   if (val) {
-    setTimeout(() => loadGiscus(), 0)
+    setTimeout(() => {
+      loadGiscus()
+      setupThemeObserver()
+    }, 0)
   }
 }, { flush: 'post' })
 </script>
