@@ -87,16 +87,18 @@ onMounted(fetchData)
 
 <style scoped>
 .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-.btn-primary { padding: 10px 20px; background: #3b82f6; color: #fff; border-radius: 10px; font-weight: 500; border: none; cursor: pointer; }
-.btn-outline { padding: 10px 20px; border: 1px solid #e2e8f0; background: #fff; border-radius: 10px; cursor: pointer; }
-.form-card { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.btn-primary { padding: 10px 20px; background: var(--brand); color: #fff; border-radius: 10px; font-weight: 500; border: none; cursor: pointer; }
+.btn-outline { padding: 10px 20px; border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; cursor: pointer; color: var(--text-secondary); }
+.form-card { background: var(--bg-card); border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow); }
 .form-card h3 { margin-bottom: 16px; }
-.input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 14px; margin-bottom: 8px; }
+.input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; margin-bottom: 8px; background: var(--bg); color: var(--text); }
 .form-row { display: flex; gap: 8px; }
-.list-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #fff; border-radius: 10px; margin-bottom: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
-.btn-sm { padding: 4px 12px; border-radius: 6px; font-size: 12px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; margin-left: 6px; }
+.list-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg-card); border-radius: 10px; margin-bottom: 8px; box-shadow: var(--shadow); }
+.btn-sm { padding: 4px 12px; border-radius: 6px; font-size: 12px; border: 1px solid var(--border); background: var(--bg-card); cursor: pointer; margin-left: 6px; color: var(--text-secondary); }
 .btn-sm.danger { color: #dc2626; }
 .status-badge { padding: 2px 8px; border-radius: 20px; font-size: 11px; margin-left: 8px; }
-.status-badge.published { background: #f0fdf4; color: #15803d; }
-.status-badge.draft { background: #fefce8; color: #a16207; }
+.status-badge.published { background: #dcfce7; color: #15803d; }
+.status-badge.draft { background: #fef9c3; color: #a16207; }
+body.dark .status-badge.published { background: #14532d; color: #86efac; }
+body.dark .status-badge.draft { background: #3b2e00; color: #fde047; }
 </style>

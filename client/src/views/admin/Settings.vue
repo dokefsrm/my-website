@@ -74,13 +74,15 @@ async function save() {
 </template>
 
 <style scoped>
-.form-card { background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); max-width: 600px; }
+.form-card { background: var(--bg-card); border-radius: 12px; padding: 32px; box-shadow: var(--shadow); max-width: 600px; }
 .form-group { margin-bottom: 16px; }
-.form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #475569; }
-.input { width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 15px; outline: none; font-family: inherit; }
-.input:focus { border-color: #3b82f6; }
-.btn-primary { padding: 12px 24px; background: #3b82f6; color: #fff; border: none; border-radius: 10px; font-size: 15px; cursor: pointer; }
-.btn-primary:hover { background: #2563eb; }
-.msg { padding: 10px 14px; border-radius: 8px; background: #f0fdf4; color: #15803d; margin-bottom: 16px; font-size: 14px; }
+.form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary); }
+.input { width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 15px; outline: none; font-family: inherit; background: var(--bg); color: var(--text); }
+.input:focus { border-color: var(--brand); }
+.btn-primary { padding: 12px 24px; background: var(--brand); color: #fff; border: none; border-radius: 10px; font-size: 15px; cursor: pointer; }
+.btn-primary:hover { background: var(--brand-hover); }
+.msg { padding: 10px 14px; border-radius: 8px; background: #dcfce7; color: #15803d; margin-bottom: 16px; font-size: 14px; }
 .msg.err { background: #fef2f2; color: #dc2626; }
+body.dark .msg { background: #14532d; color: #86efac; }
+body.dark .msg.err { background: #3b1a1a; color: #fca5a5; }
 </style>

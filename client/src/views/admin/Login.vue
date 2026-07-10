@@ -45,31 +45,33 @@ async function handleLogin() {
   justify-content: center;
   background: linear-gradient(135deg, #eff6ff, #f5f3ff);
 }
+body.dark .login-page { background: linear-gradient(135deg, #1e293b, #0f172a); }
 .login-form {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 16px;
   padding: 40px;
   width: 100%;
   max-width: 380px;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-hover);
 }
 .login-form h1 { font-size: 22px; margin-bottom: 24px; text-align: center; }
 .login-form input {
   width: 100%; padding: 12px 16px; border-radius: 10px;
-  border: 1px solid #e2e8f0; font-size: 15px; margin-bottom: 12px;
-  outline: none; transition: border-color 0.2s;
+  border: 1px solid var(--border); font-size: 15px; margin-bottom: 12px;
+  background: var(--bg); color: var(--text); outline: none; transition: border-color 0.2s;
 }
-.login-form input:focus { border-color: #3b82f6; }
+.login-form input:focus { border-color: var(--brand); }
 .login-form button {
   width: 100%; padding: 12px; border-radius: 10px;
-  background: #3b82f6; color: #fff; font-size: 16px;
+  background: var(--brand); color: #fff; font-size: 16px;
   font-weight: 600; border: none; cursor: pointer; margin-top: 8px;
   transition: background 0.2s;
 }
-.login-form button:hover { background: #2563eb; }
+.login-form button:hover { background: var(--brand-hover); }
 .login-form button:disabled { opacity: 0.6; cursor: default; }
 .error {
   background: #fef2f2; color: #dc2626; padding: 10px 14px;
   border-radius: 8px; font-size: 14px; margin-bottom: 16px;
 }
+body.dark .error { background: #3b1a1a; color: #fca5a5; }
 </style>
