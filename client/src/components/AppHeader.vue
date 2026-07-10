@@ -88,9 +88,13 @@ function logout() {
   top: 0;
   z-index: 100;
 }
-body.dark .app-nav:not(.admin) {
+body.dark .app-nav {
   background: linear-gradient(135deg, #1a1a2e 0%, #1e2746 50%, #1a1f35 100%);
   border-bottom-color: rgba(255,255,255,0.06);
+}
+body.dark .app-nav.admin {
+  background: #1a1a2e;
+  border-bottom-color: rgba(255,255,255,0.08);
 }
 .nav-brand { flex-shrink: 0; }
 .search-center {
