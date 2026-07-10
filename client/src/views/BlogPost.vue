@@ -7,6 +7,7 @@ import hljs from 'highlight.js'
 const route = useRoute()
 const post = ref(null)
 const loading = ref(true)
+const giscusEl = ref(null)
 
 async function highlight() {
   await nextTick()
@@ -15,10 +16,34 @@ async function highlight() {
   })
 }
 
+function loadGiscus() {
+  if (!giscusEl.value) return
+  // 清除旧内容，重新注入 Giscus 脚本
+  giscusEl.value.innerHTML = ''
+  const script = document.createElement('script')
+  script.src = 'https://giscus.app/client.js'
+  script.setAttribute('data-repo', 'dokefsrm/my-website')
+  script.setAttribute('data-repo-id', 'R_kgDOTAy55g')
+  script.setAttribute('data-category', 'General')
+  script.setAttribute('data-category-id', 'DIC_kwDOTAy55s4C_qnE')
+  script.setAttribute('data-mapping', 'pathname')
+  script.setAttribute('data-strict', '0')
+  script.setAttribute('data-reactions-enabled', '1')
+  script.setAttribute('data-emit-metadata', '0')
+  script.setAttribute('data-input-position', 'bottom')
+  script.setAttribute('data-theme', 'preferred_color_scheme')
+  script.setAttribute('data-lang', 'zh-CN')
+  script.crossOrigin = 'anonymous'
+  script.async = true
+  giscusEl.value.appendChild(script)
+}
+
 onMounted(async () => {
   try { post.value = await api.get(`/api/posts/${route.params.id}`) } catch {}
   loading.value = false
   await highlight()
+  await nextTick()
+  loadGiscus()
 })
 
 watch(() => route.params.id, async () => {
@@ -26,6 +51,8 @@ watch(() => route.params.id, async () => {
   try { post.value = await api.get(`/api/posts/${route.params.id}`) } catch { post.value = null }
   loading.value = false
   await highlight()
+  await nextTick()
+  loadGiscus()
 })
 </script>
 
@@ -44,23 +71,7 @@ watch(() => route.params.id, async () => {
     <!-- Giscus 评论 -->
     <div class="comments-section" v-if="post.id">
       <h3 style="margin-bottom:16px">💬 评论</h3>
-      <div class="giscus-wrap">
-        <script src="https://giscus.app/client.js"
-          data-repo="dokefsrm/my-website"
-          data-repo-id="R_kgDOTAy55g"
-          data-category="General"
-          data-category-id="DIC_kwDOTAy55s4C_qnE"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
-          crossorigin="anonymous"
-          async>
-        </script>
-      </div>
+      <div ref="giscusEl" class="giscus-wrap"></div>
     </div>
   </div>
   <div class="container" v-else><div class="empty">文章不存在</div></div>
