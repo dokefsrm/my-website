@@ -40,11 +40,11 @@ onMounted(async () => {
 
 <style scoped>
 .about-card {
-  background: #fff; border-radius: 12px; padding: 32px;
+  background: var(--bg-card); border-radius: 12px; padding: 32px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 .about-card h2 { font-size: 24px; margin-bottom: 12px; }
-.bio { color: #64748b; font-size: 15px; line-height: 1.7; }
+.bio { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .social-links { display: flex; gap: 16px; margin-top: 8px; }
 .social-links a { font-size: 14px; }

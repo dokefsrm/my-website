@@ -79,6 +79,9 @@ onMounted(async () => {
   padding: 72px 24px 56px;
   background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
 }
+body.dark .hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #1e2746 50%, #1a1f35 100%);
+}
 .hero-title {
   font-size: 40px;
   font-weight: 800;
@@ -95,6 +98,7 @@ onMounted(async () => {
   color: #64748b;
   margin-bottom: 28px;
 }
+body.dark .hero-desc { color: #94a3b8; }
 .hero-links { display: flex; gap: 12px; justify-content: center; }
 .hero-link {
   padding: 10px 24px;
@@ -105,6 +109,7 @@ onMounted(async () => {
   color: #334155;
   transition: all 0.2s;
 }
+body.dark .hero-link { border-color: #475569; color: #cbd5e1; }
 .hero-link:hover { border-color: #3b82f6; color: #3b82f6; text-decoration: none; }
 .hero-link.primary {
   background: #3b82f6; color: #fff; border-color: #3b82f6;
@@ -120,7 +125,7 @@ onMounted(async () => {
   padding: 0 24px;
 }
 .quick-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 24px 16px;
   text-align: center;
@@ -135,7 +140,7 @@ onMounted(async () => {
 }
 .quick-card .icon { font-size: 32px; display: block; margin-bottom: 8px; }
 .quick-card .title { font-size: 16px; font-weight: 700; display: block; margin-bottom: 4px; }
-.quick-card .desc { font-size: 13px; color: #94a3b8; }
+.quick-card .desc { font-size: 13px; color: var(--text-muted); }
 
 .section-title { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
 

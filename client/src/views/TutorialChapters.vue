@@ -52,19 +52,19 @@ function isActive(link) {
 </template>
 
 <style scoped>
-.back-link { font-size: 14px; color: #64748b; display: inline-block; margin-bottom: 16px; }
+.back-link { font-size: 14px; color: var(--text-secondary); display: inline-block; margin-bottom: 16px; }
 .progress-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
 .chapter-link {
   display: flex; align-items: center; gap: 8px;
   padding: 8px 12px; border-radius: 8px; font-size: 14px;
-  color: #64748b; margin-bottom: 4px;
+  color: var(--text-secondary); margin-bottom: 4px;
 }
-.chapter-link:hover { background: #eff6ff; color: #3b82f6; text-decoration: none; }
+.chapter-link:hover { background: var(--brand-soft); color: var(--brand); text-decoration: none; }
 .chapter-link .dot {
   width: 24px; height: 24px; border-radius: 50%;
-  background: #f1f5f9; display: flex; align-items: center;
+  background: var(--bg-soft); display: flex; align-items: center;
   justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0;
 }
-.chapter-content { margin-top: 32px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+.chapter-content { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
 .chapter-content h2 { font-size: 22px; margin-bottom: 16px; }
 </style>

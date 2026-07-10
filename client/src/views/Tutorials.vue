@@ -33,7 +33,7 @@ onMounted(async () => {
 <style scoped>
 .tutorial-card {
   display: block;
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 24px;
   margin-bottom: 16px;
@@ -46,6 +46,6 @@ onMounted(async () => {
   text-decoration: none;
 }
 .tutorial-card h2 { font-size: 20px; margin-bottom: 8px; }
-.tutorial-card p { color: #64748b; font-size: 14px; margin-bottom: 12px; }
+.tutorial-card p { color: var(--text-secondary); font-size: 14px; margin-bottom: 12px; }
 .tutorial-card .arrow { color: #3b82f6; font-size: 14px; font-weight: 500; }
 </style>
